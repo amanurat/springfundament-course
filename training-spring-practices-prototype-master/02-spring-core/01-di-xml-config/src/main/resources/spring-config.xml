@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="spring-repository-config.xml"/>
+
+
+    <bean id="helloWorld" class="com.training.spring.HelloWorld">
+        <constructor-arg value="John deo"/>
+    </bean>
+
+    <bean id="greetingConstructor" class="com.training.spring.di.constructor.GreetingConstructor">
+        <constructor-arg value="Hello, My name is Assanai Manurat"/>
+        <constructor-arg ref="helloWorld"/>
+    </bean>
+
+    <bean id="greetingSetter" class="com.training.spring.di.setter.GreetingSetter">
+        <property name="text" value="Hello this is from my message"/>
+        <property name="helloWorld" ref="helloWorld"/>
+    </bean>
+
+
+</beans>
